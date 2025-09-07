@@ -1,13 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaHome, FaBook, FaClipboardList, FaChartBar, FaCalendarAlt, FaEnvelope, FaCog, FaSignOutAlt, FaUsers, FaUserPlus, FaPlusSquare, FaUserCheck } from 'react-icons/fa';
+import { FaHome, FaBook, FaClipboardList, FaChartBar, FaCalendarAlt, FaEnvelope, FaCog, FaSignOutAlt, FaUsers, FaUserCheck } from 'react-icons/fa';
 import { useAuth } from '../../features/auth/AuthContext';
-
-const user = {
-  name: 'Dr. Sarah Johnson',
-  role: 'Professor',
-  avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
-};
 
 const navLinks = [
   { label: 'Dashboard', icon: <FaHome />, to: '/teacher' },

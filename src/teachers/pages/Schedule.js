@@ -236,7 +236,7 @@ export default function Schedule() {
   // Get batches and sections for selected course
   const selectedCourseData = courses.find(c => c.id === form.courseId);
   const batches = selectedCourseData?.batches || [];
-  const sections = selectedCourseData?.sections || [];
+  
 
   // Event type options
   const eventTypes = [

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../utils/api';
-import { FaSearch, FaFilter, FaEye } from 'react-icons/fa';
+
 
 export default function Students() {
   const [students, setStudents] = useState([]);
@@ -35,7 +35,7 @@ export default function Students() {
 
   // Get unique batches and semesters for filtering
   const uniqueBatches = [...new Set(students.map(s => s.batch?.name).filter(Boolean))];
-  const uniqueSemesters = [...new Set(students.map(s => s.semester?.name).filter(Boolean))];
+  
 
   // Filter students based on search and filters
   const filteredStudents = students.filter(student => {

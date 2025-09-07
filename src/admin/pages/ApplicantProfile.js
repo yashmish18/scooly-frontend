@@ -21,7 +21,6 @@ const applicant = {
 };
 
 export default function ApplicantProfile() {
-  const { id } = useParams();
 
   return (
     <div className="max-w-6xl mx-auto">

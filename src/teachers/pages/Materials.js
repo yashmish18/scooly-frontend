@@ -13,21 +13,21 @@ export default function Materials() {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [students, setStudents] = useState([]);
   const [studentFilters, setStudentFilters] = useState({ batchId: '', semesterId: '', sectionId: '' });
-  const [studentLoading, setStudentLoading] = useState(false);
+  
   const [showAddStudent, setShowAddStudent] = useState(false);
   const [addStudentForm, setAddStudentForm] = useState({ firstName: '', lastName: '', email: '', batchId: '', semesterId: '', sectionId: '' });
-  const [addStudentError, setAddStudentError] = useState(null);
-  const [addStudentSuccess, setAddStudentSuccess] = useState(null);
+  
+  
 
   // 1. Add state for all students and search
   const [allStudents, setAllStudents] = useState([]);
   const [studentSearch, setStudentSearch] = useState('');
-  const [selectedStudent, setSelectedStudent] = useState(null);
+  
 
   // Add state for the new flow
   const [showStudentSelect, setShowStudentSelect] = useState(false);
   const [availableStudents, setAvailableStudents] = useState([]);
-  const [selectedStudentIds, setSelectedStudentIds] = useState([]);
+  
   const [findLoading, setFindLoading] = useState(false);
   const [assignLoading, setAssignLoading] = useState(false);
   const [assignMessage, setAssignMessage] = useState('');
@@ -36,10 +36,10 @@ export default function Materials() {
   const [assignedStudentsMap, setAssignedStudentsMap] = useState({});
 
   // Function to fetch assigned students for the selected course/class
-  const fetchAssignedStudents = async () => {
+  
     if (!selectedCourse) return;
     try {
-      const res = await api.get('/students', {
+      
         params: {
           courseId: selectedCourse.id
         }
@@ -57,7 +57,7 @@ export default function Materials() {
     const newMap = {};
     await Promise.all(coursesList.map(async (course) => {
       try {
-        const res = await api.get('/students', { params: { courseId: course.id } });
+        
         newMap[course.id] = res.data.data || [];
       } catch {
         newMap[course.id] = [];
@@ -104,7 +104,7 @@ export default function Materials() {
       }
       setLoading(true);
       try {
-        const res = await api.get(`/courses/by-program/${encodeURIComponent(form.program)}`);
+        
         setAllCourses(res.data.data || []);
       } catch (err) {
         setAllCourses([]);
@@ -173,7 +173,7 @@ export default function Materials() {
   const [programSections, setProgramSections] = useState([]);
 
   // When Add Student is opened, set the program in the form to the selected course's program (if any)
-  const handleAddStudentClick = () => {
+  
     setShowAddStudent(true);
     setAddStudentForm({
       firstName: '',
@@ -222,7 +222,7 @@ export default function Materials() {
 
   // Use these for Add Student dropdowns
   const batchOptions = programBatches;
-  const semesterOptions = programSemesters;
+  
   const sectionOptions = useMemo(() => {
     if (!addStudentForm.batchId) return [];
     // Only show sections for the selected batch
@@ -235,7 +235,7 @@ export default function Materials() {
     return programSemesters.filter(s => s.batchId === addStudentForm.batchId);
   }, [programSemesters, addStudentForm.batchId]);
 
-  const handleStudentFilterChange = e => {
+  
     setStudentFilters(f => ({ ...f, [e.target.name]: e.target.value }));
   };
 
@@ -245,7 +245,7 @@ export default function Materials() {
     setAddStudentSuccess(null);
   };
 
-  const handleAddStudentSubmit = async e => {
+  
     e.preventDefault();
     setAddStudentError(null);
     setAddStudentSuccess(null);
@@ -263,7 +263,7 @@ export default function Materials() {
         ...(studentFilters.semesterId && { semesterId: studentFilters.semesterId }),
         ...(studentFilters.sectionId && { sectionId: studentFilters.sectionId }),
       };
-      const res = await api.get('/students', { params });
+      
       setStudents(res.data.data || []);
     } catch (err) {
       setAddStudentError(err?.response?.data?.error || 'Failed to add student');
@@ -280,7 +280,7 @@ export default function Materials() {
   }, [showAddStudent]);
 
   // 3. Filter students for search
-  const filteredStudents = useMemo(() => {
+  
     if (!studentSearch) return allStudents;
     const search = studentSearch.toLowerCase();
     return allStudents.filter(s =>
@@ -306,7 +306,7 @@ export default function Materials() {
         setFindLoading(false);
         return;
       }
-      const res = await api.get('/students/available', {
+      
         params: { batchId, semesterId, sectionId, program }
       });
       if (!res.data.data || res.data.data.length === 0) {

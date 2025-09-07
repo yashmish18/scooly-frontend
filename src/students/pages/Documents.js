@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaBook, FaFileAlt, FaGraduationCap, FaClock, FaFile, FaIdCard, FaCertificate, FaReceipt, FaUniversity, FaFilter, FaUpload, FaDownload, FaEye, FaTrash, FaPlus, FaEdit, FaTimes, FaCheck } from 'react-icons/fa';
+import { FaFileAlt, FaFile, FaIdCard, FaCertificate, FaReceipt, FaUniversity, FaFilter, FaUpload, FaDownload, FaEye, FaTrash, FaPlus, FaEdit, FaTimes, FaCheck } from 'react-icons/fa';
 import api from '../../utils/api';
 import { useStudentCourses } from '../hooks/useStudentCourses';
 import CourseCard from '../../components/CourseCard';

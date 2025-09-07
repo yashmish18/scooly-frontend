@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import api from '../../utils/api';
 
 export default function Mail() {
-  const [users, setUsers] = useState([]);
-  const [inboxMessages, setInboxMessages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

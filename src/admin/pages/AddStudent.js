@@ -25,8 +25,6 @@ const sectionOptions = [
 
 export default function AddStudent() {
   const [batch, setBatch] = useState('');
-  const [batchId, setBatchId] = useState('');
-  const [sections, setSections] = useState([]);
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',

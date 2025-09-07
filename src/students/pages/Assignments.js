@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaClipboardList, FaCheckCircle, FaCalendarAlt, FaBook, FaFileAlt, FaClock, FaGraduationCap } from 'react-icons/fa';
+import { FaClipboardList, FaCalendarAlt, FaBook, FaFileAlt, FaClock, FaGraduationCap } from 'react-icons/fa';
 import { useStudentAssignments } from '../hooks/useStudentAssignments';
 import { useStudentCourses } from '../hooks/useStudentCourses';
 

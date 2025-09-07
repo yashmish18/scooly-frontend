@@ -64,7 +64,7 @@ export default function LoginPage() {
             />
           </div>
           <div className="mb-6 text-right">
-            <a href="#" className="text-blue-600 text-sm hover:underline">Forgot password?</a>
+            <button className="text-blue-600 text-sm hover:underline">Forgot password?</button>
           </div>
           <button
             type="submit"

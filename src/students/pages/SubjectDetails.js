@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaBook, FaFileAlt, FaGraduationCap, FaClock, FaUser, FaFile, FaLink, FaVideo } from 'react-icons/fa';
+import { FaFileAlt, FaFile, FaLink } from 'react-icons/fa';
 import api from '../../utils/api';
 import CourseCard from '../../components/CourseCard';
 
@@ -40,10 +40,6 @@ export default function SubjectDetails() {
     });
   };
 
-  const formatTime = (timeString) => {
-    if (!timeString) return '-';
-    return timeString;
-  };
 
   // Get materials for a specific course
   const getMaterialsForCourse = (courseId) => {

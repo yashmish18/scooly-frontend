@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { FaChevronLeft, FaChevronRight, FaTable, FaRegCalendarAlt, FaBook, FaFileAlt, FaGraduationCap, FaClock } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaTable, FaBook, FaFileAlt, FaGraduationCap, FaClock } from 'react-icons/fa';
 import { useStudentSchedules } from '../hooks/useStudentSchedules';
 import { useStudentCourses } from '../hooks/useStudentCourses';
-
-const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 export default function Timetable() {
   const today = new Date();
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
-  const [selected, setSelected] = useState(today.getDate());
 
   const { data: schedules = [], isLoading: schedulesLoading, isError: schedulesError } = useStudentSchedules();
   const { data: courses = [], isLoading: coursesLoading, isError: coursesError } = useStudentCourses();

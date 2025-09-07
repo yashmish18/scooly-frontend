@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../utils/api';
 
-const statusColors = {
-  ACTIVE: 'bg-green-100 text-green-800',
-  SUSPENDED: 'bg-yellow-100 text-yellow-800',
-  DROPPED: 'bg-red-100 text-red-800',
-};
-
 export default function TeacherControls() {
   const [teachers, setTeachers] = useState([]);
   const [loading, setLoading] = useState(true);

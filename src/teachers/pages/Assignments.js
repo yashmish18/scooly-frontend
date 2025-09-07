@@ -108,7 +108,7 @@ export default function Assignments() {
   }, [selectedCourse]);
 
   const batchOptions = programBatches;
-  const semesterOptions = programSemesters;
+  
   const sectionOptions = useMemo(() => {
     if (!newAssignmentForm.batchId) return [];
     return programSections.filter(s => s.batchId === newAssignmentForm.batchId);
