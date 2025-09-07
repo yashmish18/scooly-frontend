@@ -7,6 +7,7 @@ export default function Timetable() {
   const today = new Date();
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
+  const [selected, setSelected] = useState(today.getDate());
 
   const { data: schedules = [], isLoading: schedulesLoading, isError: schedulesError } = useStudentSchedules();
   const { data: courses = [], isLoading: coursesLoading, isError: coursesError } = useStudentCourses();

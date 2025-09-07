@@ -36,17 +36,17 @@ export default function Materials() {
   const [assignedStudentsMap, setAssignedStudentsMap] = useState({});
 
   // Function to fetch assigned students for the selected course/class
-  
+  const fetchAssignedStudents = async () => {
     if (!selectedCourse) return;
     try {
-      
+      const res = await api.get('/students', {
         params: {
           courseId: selectedCourse.id
         }
       });
       // console.log('Fetched assigned students:', res.data.data);
       // setAssignedStudents(res.data.data || []); // This line is no longer needed
-    } catch {
+    } catch (error) {
       // setAssignedStudents([]); // This line is no longer needed
     }
   };
