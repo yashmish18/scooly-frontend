@@ -53,7 +53,7 @@ export default function Gradebook() {
     if (selectedCourse) {
       fetchStudentsAndGrades();
     }
-  }, [selectedCourse]);
+  }, [selectedCourse, fetchStudentsAndGrades]);
 
   // Fetch students and their grades for selected course
   const fetchStudentsAndGrades = async () => {

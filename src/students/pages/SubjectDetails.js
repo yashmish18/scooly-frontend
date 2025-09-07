@@ -86,7 +86,7 @@ export default function SubjectDetails() {
                   const courseResources = getResourcesForCourse(subject.id);
                   const documents = getMaterialsByType(subject.id, 'document');
                   const videos = getMaterialsByType(subject.id, 'video');
-                  const links = getResourcesByType(subject.id, 'link');
+                  // const links = getResourcesByType(subject.id, 'link');
                   
                   return (
                     <CourseCard

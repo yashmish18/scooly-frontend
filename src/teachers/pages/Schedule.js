@@ -2,16 +2,17 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import { format, parse, startOfWeek, getDay } from 'date-fns';
 import api from '../../utils/api';
-import { 
-  FaFilter, 
-  FaEye, 
-  FaEdit, 
-  FaTrash, 
-  FaBell,
-  FaMapMarkerAlt,
-  FaClock,
-  FaUsers
-} from 'react-icons/fa';
+// Unused imports commented out
+// import { 
+//   FaFilter, 
+//   FaEye, 
+//   FaEdit, 
+//   FaTrash, 
+//   FaBell,
+//   FaMapMarkerAlt,
+//   FaClock,
+//   FaUsers
+// } from 'react-icons/fa';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 const locales = {

@@ -3,15 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { 
   FaCalendarAlt, 
-  FaUsers, 
   FaCheck, 
   FaTimes, 
   FaClock, 
   FaExclamationTriangle,
   FaChartBar,
-  FaEdit,
-  FaSave,
-  FaEye
+  FaSave
 } from 'react-icons/fa';
 import api from '../../utils/api';
 

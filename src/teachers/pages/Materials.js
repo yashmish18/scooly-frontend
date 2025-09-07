@@ -36,20 +36,20 @@ export default function Materials() {
   const [assignedStudentsMap, setAssignedStudentsMap] = useState({});
 
   // Function to fetch assigned students for the selected course/class
-  const fetchAssignedStudents = async () => {
-    if (!selectedCourse) return;
-    try {
-      const res = await api.get('/teachers/students/assigned', {
-        params: {
-          courseId: selectedCourse.id
-        }
-      });
-      // console.log('Fetched assigned students:', res.data.data);
-      // setAssignedStudents(res.data.data || []); // This line is no longer needed
-    } catch {
-      // setAssignedStudents([]); // This line is no longer needed
-    }
-  };
+  // const fetchAssignedStudents = async () => {
+  //   if (!selectedCourse) return;
+  //   try {
+  //     const res = await api.get('/teachers/students/assigned', {
+  //       params: {
+  //         courseId: selectedCourse.id
+  //       }
+  //     });
+  //     // console.log('Fetched assigned students:', res.data.data);
+  //     // setAssignedStudents(res.data.data || []); // This line is no longer needed
+  //   } catch {
+  //     // setAssignedStudents([]); // This line is no longer needed
+  //   }
+  // };
 
   // 2. Fetch assigned students for all courses
   const fetchAllAssignedStudents = async (coursesList) => {
@@ -175,20 +175,20 @@ export default function Materials() {
   const [programSections, setProgramSections] = useState([]);
 
   // When Add Student is opened, set the program in the form to the selected course's program (if any)
-  const handleOpenAddStudent = () => {
-    setShowAddStudent(true);
-    setAddStudentForm({
-      firstName: '',
-      lastName: '',
-      email: '',
-      batchId: '',
-      semesterId: '',
-      sectionId: '',
-      program: selectedCourse?.program || form.program || ''
-    });
-    setAddStudentError(null);
-    setAddStudentSuccess(null);
-  };
+  // const handleOpenAddStudent = () => {
+  //   setShowAddStudent(true);
+  //   setAddStudentForm({
+  //     firstName: '',
+  //     lastName: '',
+  //     email: '',
+  //     batchId: '',
+  //     semesterId: '',
+  //     sectionId: '',
+  //     program: selectedCourse?.program || form.program || ''
+  //   });
+  //   setAddStudentError(null);
+  //   setAddStudentSuccess(null);
+  // };
 
   // Fetch batches/semesters/sections for the correct program (from Add Student form or global form)
   useEffect(() => {
@@ -237,9 +237,9 @@ export default function Materials() {
     return programSemesters.filter(s => s.batchId === addStudentForm.batchId);
   }, [programSemesters, addStudentForm.batchId]);
 
-  const handleStudentFiltersChange = e => {
-    setStudentFilters(f => ({ ...f, [e.target.name]: e.target.value }));
-  };
+  // const handleStudentFiltersChange = e => {
+  //   setStudentFilters(f => ({ ...f, [e.target.name]: e.target.value }));
+  // };
 
   const handleAddStudentFormChange = e => {
     setAddStudentForm(f => ({ ...f, [e.target.name]: e.target.value }));
@@ -247,30 +247,30 @@ export default function Materials() {
     setAddStudentSuccess(null);
   };
 
-  const handleAddStudent = async (e) => {
-    e.preventDefault();
-    setAddStudentError(null);
-    setAddStudentSuccess(null);
-    try {
-      await api.post('/teachers/students/add', {
-        ...addStudentForm,
-        courseId: selectedCourse.id,
-      });
-      setAddStudentSuccess('Student added successfully!');
-      setAddStudentForm({ firstName: '', lastName: '', email: '', batchId: '', semesterId: '', sectionId: '' });
-      // Refresh students
-      const params = {
-        courseId: selectedCourse.id,
-        ...(studentFilters.batchId && { batchId: studentFilters.batchId }),
-        ...(studentFilters.semesterId && { semesterId: studentFilters.semesterId }),
-        ...(studentFilters.sectionId && { sectionId: studentFilters.sectionId }),
-      };
-      const res = await api.get('/teachers/students/assigned', { params });
-      setStudents(res.data.data || []);
-    } catch (err) {
-      setAddStudentError(err?.response?.data?.error || 'Failed to add student');
-    }
-  };
+  // const handleAddStudent = async (e) => {
+  //   e.preventDefault();
+  //   setAddStudentError(null);
+  //   setAddStudentSuccess(null);
+  //   try {
+  //     await api.post('/teachers/students/add', {
+  //       ...addStudentForm,
+  //       courseId: selectedCourse.id,
+  //     });
+  //     setAddStudentSuccess('Student added successfully!');
+  //     setAddStudentForm({ firstName: '', lastName: '', email: '', batchId: '', semesterId: '', sectionId: '' });
+  //     // Refresh students
+  //     const params = {
+  //       courseId: selectedCourse.id,
+  //       ...(studentFilters.batchId && { batchId: studentFilters.batchId }),
+  //       ...(studentFilters.semesterId && { semesterId: studentFilters.semesterId }),
+  //       ...(studentFilters.sectionId && { sectionId: studentFilters.sectionId }),
+  //     };
+  //     const res = await api.get('/teachers/students/assigned', { params });
+  //     setStudents(res.data.data || []);
+  //   } catch (err) {
+  //     setAddStudentError(err?.response?.data?.error || 'Failed to add student');
+  //   }
+  // };
 
   // 2. Fetch all students when Add Student is opened
   useEffect(() => {
@@ -282,16 +282,16 @@ export default function Materials() {
   }, [showAddStudent]);
 
   // 3. Filter students for search
-  const filteredStudents = useMemo(() => {
-    if (!studentSearch) return allStudents;
-    const search = studentSearch.toLowerCase();
-    return allStudents.filter(s =>
-      s.firstName?.toLowerCase().includes(search) ||
-      s.lastName?.toLowerCase().includes(search) ||
-      s.email?.toLowerCase().includes(search) ||
-      s.rollNumber?.toLowerCase().includes(search)
-    );
-  }, [allStudents, studentSearch]);
+  // const filteredStudents = useMemo(() => {
+  //   if (!studentSearch) return allStudents;
+  //   const search = studentSearch.toLowerCase();
+  //   return allStudents.filter(s =>
+  //     s.firstName?.toLowerCase().includes(search) ||
+  //     s.lastName?.toLowerCase().includes(search) ||
+  //     s.email?.toLowerCase().includes(search) ||
+  //     s.rollNumber?.toLowerCase().includes(search)
+  //   );
+  // }, [allStudents, studentSearch]);
 
   // Handler for Find Students
   const handleFindStudents = async (e) => {
@@ -349,9 +349,9 @@ export default function Materials() {
   // State for Select All checkbox
   const [allSelected, setAllSelected] = useState(false);
   const [selectedStudentIds, setSelectedStudentIds] = useState([]);
-  const [addStudentError, setAddStudentError] = useState(null);
-  const [addStudentSuccess, setAddStudentSuccess] = useState(null);
-  const [studentLoading, setStudentLoading] = useState(false);
+  const [addStudentError] = useState(null);
+  const [addStudentSuccess] = useState(null);
+  const [studentLoading] = useState(false);
 
   const handleSelectAll = (e) => {
     setAllSelected(e.target.checked);
